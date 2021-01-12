@@ -11,6 +11,7 @@ namespace Factory_Managment_Website.Controllers
         // GET: HomePage
         public ActionResult Index()
         {
+            ViewBag.name = "yoda";
             return View();
         }
     }

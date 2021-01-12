@@ -161,6 +161,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FactoryDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\HomePageBL.cs" />
     <Compile Include="Models\LoginBL.cs" />
     <Compile Include="Models\Shift_table.cs">
       <DependentUpon>FactoryDB.tt</DependentUpon>
@@ -221,13 +222,12 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\Login\HomePage.cshtml" />
+    <Content Include="Views\HomePage\index.cshtml" />
     <Content Include="Views\Employee\EmployeesList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Department\" />
-    <Folder Include="Views\HomePage\" />
     <Folder Include="Views\Shift\" />
   </ItemGroup>
   <ItemGroup>

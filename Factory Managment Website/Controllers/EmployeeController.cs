@@ -13,8 +13,8 @@ namespace Factory_Managment_Website.Controllers
         EmployeeBL employeeBL = new EmployeeBL();
         public ActionResult Index()
         {
-            var EmployeesData = employeeBL.GetEmployees();
-            ViewBag.employees = EmployeesData;
+           // var EmployeesData = employeeBL.GetEmployees();
+            //ViewBag.employees = EmployeesData;
             return View("EmployeesList");
         }
 

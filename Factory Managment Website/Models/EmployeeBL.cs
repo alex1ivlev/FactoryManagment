@@ -9,6 +9,10 @@ namespace Factory_Managment_Website.Models
     {
         Factory_Managment_DBEntities1 db = new Factory_Managment_DBEntities1();
 
-        public List<Employees> GetEmployees() => db.Employee_table.ToList();
+        /**public List<Employee> GetEmployees()
+        {
+            return db.Employee.ToList();
+        }*/
     }
+
 }

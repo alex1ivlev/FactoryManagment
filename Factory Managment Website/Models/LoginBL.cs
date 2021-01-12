@@ -13,14 +13,7 @@ namespace Factory_Managment_Website.Models
         {
             var result = db.User_table.Where(x => x.User_name == username && x.Password == password);
 
-            if (result.Count() == 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return result.Count() != 0;
         }
 
 
