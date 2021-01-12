@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Department_table">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Manager_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee_table" Relationship="Self.FK_Department_table_Employee_table" FromRole="Department_table" ToRole="Employee_table" />
+    <NavigationProperty Name="Employee_table1" Relationship="Self.FK_Employee_table_Department_table" FromRole="Department_table" ToRole="Employee_table" />
+  </EntityType>
+  <EntityType Name="Employee_Shift_ID">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Employee_ID" Type="Int32" Nullable="false" />
+    <Property Name="Shift_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee_table" Relationship="Self.FK_Employee_Shift_ID_Employee_table" FromRole="Employee_Shift_ID" ToRole="Employee_table" />
+    <NavigationProperty Name="Shift_table" Relationship="Self.FK_Employee_Shift_ID_Shift_table" FromRole="Employee_Shift_ID" ToRole="Shift_table" />
+  </EntityType>
+  <EntityType Name="Employee_table">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="First_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Start_work_year" Type="Int32" Nullable="false" />
+    <Property Name="Department_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Department_table" Relationship="Self.FK_Department_table_Employee_table" FromRole="Employee_table" ToRole="Department_table" />
+    <NavigationProperty Name="Department_table1" Relationship="Self.FK_Employee_table_Department_table" FromRole="Employee_table" ToRole="Department_table" />
+    <NavigationProperty Name="Employee_Shift_ID" Relationship="Self.FK_Employee_Shift_ID_Employee_table" FromRole="Employee_table" ToRole="Employee_Shift_ID" />
+    <NavigationProperty Name="Employee_table1" Relationship="Self.FK_Employee_table_Employee_table" FromRole="Employee_table" ToRole="Employee_table1" />
+    <NavigationProperty Name="Employee_table2" Relationship="Self.FK_Employee_table_Employee_table" FromRole="Employee_table1" ToRole="Employee_table" />
+  </EntityType>
+  <EntityType Name="Shift_table">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Start_time" Type="Int32" Nullable="false" />
+    <Property Name="End_time" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee_Shift_ID" Relationship="Self.FK_Employee_Shift_ID_Shift_table" FromRole="Shift_table" ToRole="Employee_Shift_ID" />
+  </EntityType>
+  <EntityType Name="User_table">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Full_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="User_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Num_of_actions" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Department_table_Employee_table">
+    <End Role="Employee_table" Type="Self.Employee_table" Multiplicity="1" />
+    <End Role="Department_table" Type="Self.Department_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee_table">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Department_table">
+        <PropertyRef Name="Manager_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_table_Department_table">
+    <End Role="Department_table" Type="Self.Department_table" Multiplicity="1" />
+    <End Role="Employee_table" Type="Self.Employee_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department_table">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee_table">
+        <PropertyRef Name="Department_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Shift_ID_Employee_table">
+    <End Role="Employee_table" Type="Self.Employee_table" Multiplicity="1" />
+    <End Role="Employee_Shift_ID" Type="Self.Employee_Shift_ID" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee_table">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee_Shift_ID">
+        <PropertyRef Name="Employee_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Shift_ID_Shift_table">
+    <End Role="Shift_table" Type="Self.Shift_table" Multiplicity="1" />
+    <End Role="Employee_Shift_ID" Type="Self.Employee_Shift_ID" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shift_table">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee_Shift_ID">
+        <PropertyRef Name="Shift_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_table_Employee_table">
+    <End Role="Employee_table" Type="Self.Employee_table" Multiplicity="1" />
+    <End Role="Employee_table1" Type="Self.Employee_table" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Employee_table">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee_table1">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Factory_Managment_DBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Department_tables" EntityType="Self.Department_table" />
+    <EntitySet Name="Employee_Shift_IDs" EntityType="Self.Employee_Shift_ID" />
+    <EntitySet Name="Employee_tables" EntityType="Self.Employee_table" />
+    <EntitySet Name="Shift_tables" EntityType="Self.Shift_table" />
+    <EntitySet Name="User_tables" EntityType="Self.User_table" />
+    <AssociationSet Name="FK_Department_table_Employee_table" Association="Self.FK_Department_table_Employee_table">
+      <End Role="Employee_table" EntitySet="Employee_tables" />
+      <End Role="Department_table" EntitySet="Department_tables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_table_Department_table" Association="Self.FK_Employee_table_Department_table">
+      <End Role="Department_table" EntitySet="Department_tables" />
+      <End Role="Employee_table" EntitySet="Employee_tables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Shift_ID_Employee_table" Association="Self.FK_Employee_Shift_ID_Employee_table">
+      <End Role="Employee_table" EntitySet="Employee_tables" />
+      <End Role="Employee_Shift_ID" EntitySet="Employee_Shift_IDs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Shift_ID_Shift_table" Association="Self.FK_Employee_Shift_ID_Shift_table">
+      <End Role="Shift_table" EntitySet="Shift_tables" />
+      <End Role="Employee_Shift_ID" EntitySet="Employee_Shift_IDs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_table_Employee_table" Association="Self.FK_Employee_table_Employee_table">
+      <End Role="Employee_table" EntitySet="Employee_tables" />
+      <End Role="Employee_table1" EntitySet="Employee_tables" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
