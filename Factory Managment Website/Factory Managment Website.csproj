@@ -138,36 +138,44 @@
     </Compile>
     <Compile Include="Models\Department_table.cs">
       <DependentUpon>FactoryDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Models\EmployeeBL.cs" />
     <Compile Include="Models\Employee_Shift_ID.cs">
       <DependentUpon>FactoryDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Models\Employee_table.cs">
       <DependentUpon>FactoryDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Models\FactoryDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FactoryDB.Context.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Models\FactoryDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FactoryDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Models\FactoryDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FactoryDB.edmx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Models\HomePageBL.cs" />
     <Compile Include="Models\LoginBL.cs" />
     <Compile Include="Models\Shift_table.cs">
       <DependentUpon>FactoryDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Models\User_table.cs">
       <DependentUpon>FactoryDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -184,20 +192,24 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>FactoryDB.edmx</DependentUpon>
       <LastGenOutput>FactoryDB.Context.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Models\FactoryDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>FactoryDB.edmx</DependentUpon>
       <LastGenOutput>FactoryDB.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\FactoryDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>FactoryDB.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EntityDeploy>
     <Content Include="Models\FactoryDB.edmx.diagram">
       <DependentUpon>FactoryDB.edmx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
