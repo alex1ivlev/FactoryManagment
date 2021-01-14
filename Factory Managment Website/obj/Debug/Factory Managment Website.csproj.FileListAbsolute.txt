@@ -87,6 +87,7 @@ C:\Users\user\source\repos\Factory Managment Website\Factory Managment Website\b
 C:\Users\user\source\repos\Factory Managment Website\Factory Managment Website\bin\Newtonsoft.Json.xml
 C:\Users\user\source\repos\Factory Managment Website\Factory Managment Website\bin\Antlr3.Runtime.pdb
 C:\Users\user\source\repos\Factory Managment Website\Factory Managment Website\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\user\source\repos\Factory Managment Website\Factory Managment Website\obj\Debug\Factory Managment Website.csprojAssemblyReference.cache
 C:\Users\user\source\repos\Factory Managment Website\Factory Managment Website\obj\Debug\Factory Managment Website.csproj.CoreCompileInputs.cache
 C:\Users\user\source\repos\Factory Managment Website\Factory Managment Website\obj\Debug\Factory Managment Website.csproj.CopyComplete
 C:\Users\user\source\repos\Factory Managment Website\Factory Managment Website\obj\Debug\Factory Managment Website.dll
