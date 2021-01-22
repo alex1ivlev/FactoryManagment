@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Shifts List</title>
+</head>
+<body>
+    <div>
+        <table border="1">
+            <tr>
+                <th>Shift ID</th>
+                <th>Date </th>
+                <th>Start time</th>
+                <th>End time</th>
+                <th>Employee</th>
+
+            </tr>
+
+            @foreach (var shift in ViewBag.shifts)
+            {
+                <tr>
+                    <td>@shift.ID </td>
+                    <td>@shift.Date </td>
+                    <td>@shift.Start_time </td>
+                    <td>@shift.End_time </td>
+                    <td> </td>
+                </tr>
+
+
+            }
+        </table>
+    </div>>
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Department List</title>
+</head>
+<body>
+    <div>
+        <table border="1">
+            <tr>
+                <th> Department ID</th>
+                <th>Department Name </th>
+                <th>Manager ID</th>
+                <th>Edit</th>
+                <th>Delete</th>
+
+            </tr>
+
+            @foreach (var department in ViewBag.departments)
+            { <tr>
+                  <td>@department.ID </td>
+                  <td>@department.Name </td>
+                  <td>@department.Manager_ID </td>
+                  <td>@Html.ActionLink("Edit", "Edit", new { id = department.ID }) </td>
+                  <td>@Html.ActionLink("Delete", "Delete", new { id = department.ID }) </td>
+               </tr>
+
+
+            }
+            </table>
+
+        <div>
+            @Html.ActionLink("Edit", "UpdateDepartment", new { departmentID = ViewBag.departmentID })
+        </div>
+</div>
+</body>
+</html>

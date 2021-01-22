@@ -12,12 +12,11 @@ namespace Factory_Managment_Website.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class User_table
+    public partial class Shift
     {
         public int ID { get; set; }
-        public string Full_name { get; set; }
-        public string User_name { get; set; }
-        public string Password { get; set; }
-        public int Num_of_actions { get; set; }
+        public System.DateTime Date { get; set; }
+        public int Start_time { get; set; }
+        public int End_time { get; set; }
     }
 }

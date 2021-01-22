@@ -1,14 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="FactoryDB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Department_table">
+  <EntityContainer Name="Factory_Managment_DBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Department" EntityType="FactoryDB.Department" />
+    <EntitySet Name="Employee" EntityType="FactoryDB.Employee" />
+    <EntitySet Name="Employee_Shift" EntityType="FactoryDB.Employee_Shift" />
+    <EntitySet Name="Shift" EntityType="FactoryDB.Shift" />
+    <EntitySet Name="User" EntityType="FactoryDB.User" />
+  </EntityContainer>
+  <EntityType Name="Department">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Manager_ID" Type="Int32" Nullable="false" />
   </EntityType>
-  <EntityType Name="Employee_Shift_ID">
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="First_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Start_work_year" Type="Int32" Nullable="false" />
+    <Property Name="Department_ID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee_Shift">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
@@ -16,17 +33,7 @@
     <Property Name="Employee_ID" Type="Int32" Nullable="false" />
     <Property Name="Shift_ID" Type="Int32" Nullable="false" />
   </EntityType>
-  <EntityType Name="Employee_table">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="First_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Start_work_year" Type="Int32" Nullable="false" />
-    <Property Name="Department_ID" Type="Int32" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Shift_table">
+  <EntityType Name="Shift">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
@@ -35,21 +42,14 @@
     <Property Name="Start_time" Type="Int32" Nullable="false" />
     <Property Name="End_time" Type="Int32" Nullable="false" />
   </EntityType>
-  <EntityType Name="User_table">
+  <EntityType Name="User">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="Full_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="User_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Full_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="User_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Num_of_actions" Type="Int32" Nullable="false" />
   </EntityType>
-  <EntityContainer Name="Factory_Managment_DBEntities1" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Department_table" EntityType="Self.Department_table" />
-    <EntitySet Name="Employee_Shift_ID" EntityType="Self.Employee_Shift_ID" />
-    <EntitySet Name="Employee_table" EntityType="Self.Employee_table" />
-    <EntitySet Name="Shift_table" EntityType="Self.Shift_table" />
-    <EntitySet Name="User_table" EntityType="Self.User_table" />
-  </EntityContainer>
 </Schema>

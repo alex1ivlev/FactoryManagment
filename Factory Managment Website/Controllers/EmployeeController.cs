@@ -10,12 +10,12 @@ namespace Factory_Managment_Website.Controllers
     public class EmployeeController : Controller
     {
         // GET: Employee
-        EmployeeBL employeeBL = new EmployeeBL();
-        public ActionResult Index()
+        EmployeesBL employeeBL = new EmployeesBL();
+        public ActionResult GetEmployeeList()
         {
-           // var EmployeesData = employeeBL.GetEmployees();
-            //ViewBag.employees = EmployeesData;
-            return View("EmployeesList");
+           var EmployeesData = employeeBL.GetEmployees();
+           ViewBag.employees = EmployeesData;
+           return View("EmployeesList");
         }
 
     }

@@ -1,53 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="FactoryDBStoreContainer" CdmEntityContainer="Factory_Managment_DBEntities1">
-    <EntitySetMapping Name="Department_table">
-      <EntityTypeMapping TypeName="FactoryDB.Department_table">
-        <MappingFragment StoreEntitySet="Department table">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
+  <EntityContainerMapping StorageEntityContainer="FactoryDBStoreContainer" CdmEntityContainer="Factory_Managment_DBEntities">
+    <EntitySetMapping Name="Department">
+      <EntityTypeMapping TypeName="FactoryDB.Department">
+        <MappingFragment StoreEntitySet="Department">
           <ScalarProperty Name="Manager_ID" ColumnName="Manager ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Employee_Shift_ID">
-      <EntityTypeMapping TypeName="FactoryDB.Employee_Shift_ID">
-        <MappingFragment StoreEntitySet="Employee Shift ID">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Employee_ID" ColumnName="Employee ID" />
-          <ScalarProperty Name="Shift_ID" ColumnName="Shift ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Employee_table">
-      <EntityTypeMapping TypeName="FactoryDB.Employee_table">
-        <MappingFragment StoreEntitySet="Employee table">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="First_name" ColumnName="First name" />
-          <ScalarProperty Name="Last_name" ColumnName="Last name" />
-          <ScalarProperty Name="Start_work_year" ColumnName="Start work year" />
+    <EntitySetMapping Name="Employee">
+      <EntityTypeMapping TypeName="FactoryDB.Employee">
+        <MappingFragment StoreEntitySet="Employee">
           <ScalarProperty Name="Department_ID" ColumnName="Department ID" />
+          <ScalarProperty Name="Start_work_year" ColumnName="Start work year" />
+          <ScalarProperty Name="Last_name" ColumnName="Last name" />
+          <ScalarProperty Name="First_name" ColumnName="First name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Shift_table">
-      <EntityTypeMapping TypeName="FactoryDB.Shift_table">
-        <MappingFragment StoreEntitySet="Shift table">
+    <EntitySetMapping Name="Employee_Shift">
+      <EntityTypeMapping TypeName="FactoryDB.Employee_Shift">
+        <MappingFragment StoreEntitySet="Employee_Shift">
+          <ScalarProperty Name="Shift_ID" ColumnName="Shift ID" />
+          <ScalarProperty Name="Employee_ID" ColumnName="Employee ID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Start_time" ColumnName="Start time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shift">
+      <EntityTypeMapping TypeName="FactoryDB.Shift">
+        <MappingFragment StoreEntitySet="Shift">
           <ScalarProperty Name="End_time" ColumnName="End time" />
+          <ScalarProperty Name="Start_time" ColumnName="Start time" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="User_table">
-      <EntityTypeMapping TypeName="FactoryDB.User_table">
-        <MappingFragment StoreEntitySet="User table">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Full_name" ColumnName="Full name" />
-          <ScalarProperty Name="User_name" ColumnName="User name" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="FactoryDB.User">
+        <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="Num_of_actions" ColumnName="Num of actions" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="User_name" ColumnName="User name" />
+          <ScalarProperty Name="Full_name" ColumnName="Full name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

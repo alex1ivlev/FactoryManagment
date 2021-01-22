@@ -13,10 +13,10 @@ namespace Factory_Managment_Website.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Factory_Managment_DBEntities1 : DbContext
+    public partial class Factory_Managment_DBEntities : DbContext
     {
-        public Factory_Managment_DBEntities1()
-            : base("name=Factory_Managment_DBEntities1")
+        public Factory_Managment_DBEntities()
+            : base("name=Factory_Managment_DBEntities")
         {
         }
     
@@ -25,10 +25,10 @@ namespace Factory_Managment_Website.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Department_table> Department_table { get; set; }
-        public virtual DbSet<Employee_Shift_ID> Employee_Shift_ID { get; set; }
-        public virtual DbSet<Employee_table> Employee_table { get; set; }
-        public virtual DbSet<Shift_table> Shift_table { get; set; }
-        public virtual DbSet<User_table> User_table { get; set; }
+        public virtual DbSet<Department> Department { get; set; }
+        public virtual DbSet<Employee> Employee { get; set; }
+        public virtual DbSet<Employee_Shift> Employee_Shift { get; set; }
+        public virtual DbSet<Shift> Shift { get; set; }
+        public virtual DbSet<User> User { get; set; }
     }
 }

@@ -14,11 +14,11 @@
     <div>
         <h1> Welcome to Home Page @ViewBag.name!</h1>
 
-        <h3>Employees </h3> <br />
+        <h3> @Html.ActionLink("Employees List", "GetEmployeeList", "Employee")</h3> <br/>
 
-        <h3>Departments </h3> <br />
+        <h3> @Html.ActionLink("Departments List", "GetDepartmentList", "Department")</h3> <br/>
 
-        <h3>Shifts </h3> <br />
+        <h3> @Html.ActionLink("Shifts List", "GetShiftList", "Shift")</h3> <br />
     </div>
 </body>
 </html>

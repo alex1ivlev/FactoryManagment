@@ -35,7 +35,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>pdbonly</DebugType>
@@ -137,18 +136,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Department_table.cs">
+    <Compile Include="Models\Department.cs">
       <DependentUpon>FactoryDB.tt</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Models\EmployeeBL.cs" />
-    <Compile Include="Models\Employee_Shift_ID.cs">
+    <Compile Include="Models\DepartmentBL.cs" />
+    <Compile Include="Models\Employee.cs">
       <DependentUpon>FactoryDB.tt</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Models\Employee_table.cs">
+    <Compile Include="Models\EmployeesBL.cs" />
+    <Compile Include="Models\Employee_Shift.cs">
       <DependentUpon>FactoryDB.tt</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Models\FactoryDB.Context.cs">
       <AutoGen>True</AutoGen>
@@ -170,13 +167,12 @@
     </Compile>
     <Compile Include="Models\HomePageBL.cs" />
     <Compile Include="Models\LoginBL.cs" />
-    <Compile Include="Models\Shift_table.cs">
+    <Compile Include="Models\Shift.cs">
       <DependentUpon>FactoryDB.tt</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Models\User_table.cs">
+    <Compile Include="Models\ShiftBL.cs" />
+    <Compile Include="Models\User.cs">
       <DependentUpon>FactoryDB.tt</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -237,11 +233,13 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\HomePage\index.cshtml" />
     <Content Include="Views\Employee\EmployeesList.cshtml" />
+    <Content Include="Views\Department\DepartmentList.cshtml" />
+    <Content Include="Views\Shift\ShiftList.cshtml" />
+    <Content Include="Views\Department\EditDepartment2.cshtml" />
+    <Content Include="Views\Department\EditDepartment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Department\" />
-    <Folder Include="Views\Shift\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

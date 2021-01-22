@@ -5,11 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="adcb75a34b1343d2a712c66b89795ec0" Name="Diagram1">
-        <EntityTypeShape EntityType="FactoryDB.Department_table" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="FactoryDB.Employee_Shift_ID" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="FactoryDB.Employee_table" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="FactoryDB.Shift_table" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="FactoryDB.User_table" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FactoryDB.Department" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FactoryDB.Employee" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FactoryDB.Employee_Shift" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="FactoryDB.Shift" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="FactoryDB.User" Width="1.5" PointX="4.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -7,7 +7,7 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta  name="viewport" content="width=device-width" />
     <title>EmployeesList</title>
 </head>
 <body>
@@ -17,16 +17,27 @@
                 <th> ID</th>
                 <th>First Name </th>
                 <th>Last Name </th>
+                <th>Department ID</th>
                 <th>Start Work Year</th>
+                <th>Shift</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>Add Shift</th>
 
             </tr>
 
             @foreach (var employee in ViewBag.employees)
             { <tr>
                 <td> @employee.ID </td>
-                <td> @employee.First Name</td>
-                <td> @employee.Last Name</td>
-                <td> @employee.Start work year</td>
+                <td> @employee.First_name</td>
+                <td> @employee.Last_name</td>
+                <td> @employee.Department_ID</td>
+                <td> @employee.Start_work_year</td>
+                <td>  Shift</td>
+                <td>  Edit</td>
+                <td>  Delete</td>
+                <td>  Add Shift</td>
+                
             </tr>
             }
         </table>

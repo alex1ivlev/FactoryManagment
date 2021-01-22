@@ -12,7 +12,7 @@ namespace Factory_Managment_Website.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class User_table
+    public partial class User
     {
         public int ID { get; set; }
         public string Full_name { get; set; }

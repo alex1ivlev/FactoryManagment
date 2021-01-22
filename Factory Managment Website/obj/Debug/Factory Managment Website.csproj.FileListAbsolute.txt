@@ -1,14 +1,9 @@
 C:\Users\user\source\repos\Factory Managment Website\Factory Managment Website\bin\Models\FactoryDB.Context.tt
 C:\Users\user\source\repos\Factory Managment Website\Factory Managment Website\bin\Models\FactoryDB.tt
 C:\Users\user\source\repos\Factory Managment Website\Factory Managment Website\bin\Models\FactoryDB.edmx.diagram
-C:\Users\user\source\repos\Factory Managment Website\Factory Managment Website\bin\Models\Department_table.cs
-C:\Users\user\source\repos\Factory Managment Website\Factory Managment Website\bin\Models\Employee_Shift_ID.cs
-C:\Users\user\source\repos\Factory Managment Website\Factory Managment Website\bin\Models\Employee_table.cs
 C:\Users\user\source\repos\Factory Managment Website\Factory Managment Website\bin\Models\FactoryDB.Context.cs
 C:\Users\user\source\repos\Factory Managment Website\Factory Managment Website\bin\Models\FactoryDB.cs
 C:\Users\user\source\repos\Factory Managment Website\Factory Managment Website\bin\Models\FactoryDB.Designer.cs
-C:\Users\user\source\repos\Factory Managment Website\Factory Managment Website\bin\Models\Shift_table.cs
-C:\Users\user\source\repos\Factory Managment Website\Factory Managment Website\bin\Models\User_table.cs
 C:\Users\user\source\repos\Factory Managment Website\Factory Managment Website\bin\Factory Managment Website.dll.config
 C:\Users\user\source\repos\Factory Managment Website\Factory Managment Website\bin\Factory Managment Website.dll
 C:\Users\user\source\repos\Factory Managment Website\Factory Managment Website\bin\Factory Managment Website.pdb

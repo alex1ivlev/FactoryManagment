@@ -1,0 +1,23 @@
+﻿@model Factory_Managment_Website.Models.Department
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit Department</title>
+</head>
+<body>
+    <div>
+        <form action="/Department/GetUpdatedDepartmentFromUser" method="post">
+            ID : @Html.DisplayFor(x => x.ID) <br />
+            Name : @Html.EditorFor(x => x.Name) <br />
+            Manager ID : @Html.EditorFor(x => x.Manager_ID) <br />
+
+        </form>
+    </div>
+</body>
+</html>

@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Factory_Managment_Website.Models;
 
 namespace Factory_Managment_Website.Controllers
 {
     public class ShiftController : Controller
     {
         // GET: Shift
-        public ActionResult Index()
+        ShiftBL shiftBL = new ShiftBL();
+        public ActionResult GetShiftList()
         {
-            return View();
+            var ShiftData = shiftBL.GetShiftData();
+            ViewBag.shifts = ShiftData;
+            return View("ShiftList");
         }
     }
 }

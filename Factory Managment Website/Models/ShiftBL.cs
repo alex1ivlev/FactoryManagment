@@ -5,18 +5,12 @@ using System.Web;
 
 namespace Factory_Managment_Website.Models
 {
-    public class LoginBL
+    public class ShiftBL
     {
         Factory_Managment_DBEntities db = new Factory_Managment_DBEntities();
-
-        public bool IsAuthenticated(string username, string password)
+        public List<Shift> GetShiftData()
         {
-            var result = db.User.Where(x => x.User_name == username && x.Password == password);
-
-            return result.Count() != 0;
+            return db.Shift.ToList();
         }
-
-
     }
-
 }
