@@ -1,0 +1,27 @@
+﻿@model Factory_Managment_Website.Models.Department
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add New Department</title>
+</head>
+<body>
+    <div>
+        <form action="/Department/New" method="post">
+            ID: @Html.TextBoxFor(x => x.ID) <br />
+
+            Department Name: @Html.TextBoxFor(x => x.Name) <br />
+
+            Manager ID: @Html.TextBoxFor(x => x.Manager_ID) <br />
+
+            <input type="submit" value="Save" />
+        </form>
+    </div>
+</body>
+</html>

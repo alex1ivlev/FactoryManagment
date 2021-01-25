@@ -6,25 +6,25 @@
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Manager ID" Type="int" Nullable="false" />
+    <Property Name="Manager_ID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Employee">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
-    <Property Name="First name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Last name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Start work year" Type="int" Nullable="false" />
-    <Property Name="Department ID" Type="int" Nullable="false" />
+    <Property Name="First_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Last_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Start_work_year" Type="int" Nullable="false" />
+    <Property Name="Department_ID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Employee_Shift">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
-    <Property Name="Employee ID" Type="int" Nullable="false" />
-    <Property Name="Shift ID" Type="int" Nullable="false" />
+    <Property Name="Employee_ID" Type="int" Nullable="false" />
+    <Property Name="Shift_ID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Shift">
     <Key>
@@ -32,24 +32,89 @@
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="Date" Type="datetime" Nullable="false" />
-    <Property Name="Start time" Type="int" Nullable="false" />
-    <Property Name="End time" Type="int" Nullable="false" />
+    <Property Name="Start_time" Type="int" Nullable="false" />
+    <Property Name="End_time" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
-    <Property Name="Full name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="User name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Full_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="User_name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Num of actions" Type="int" Nullable="false" />
+    <Property Name="Num_of_actions" Type="int" Nullable="false" />
+    <Property Name="Timestamp" Type="date" />
   </EntityType>
+  <Association Name="FK__Departmen__Manag__5AEE82B9">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Department" Type="Self.Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Department">
+        <PropertyRef Name="Manager_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee___Emplo__5CD6CB2B">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Employee_Shift" Type="Self.Employee_Shift" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee_Shift">
+        <PropertyRef Name="Employee_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee___Shift__5DCAEF64">
+    <End Role="Shift" Type="Self.Shift" Multiplicity="1" />
+    <End Role="Employee_Shift" Type="Self.Employee_Shift" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shift">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee_Shift">
+        <PropertyRef Name="Shift_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__Depart__5BE2A6F2">
+    <End Role="Department" Type="Self.Department" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Department_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="FactoryDBStoreContainer">
     <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Employee_Shift" EntityType="Self.Employee_Shift" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Shift" EntityType="Self.Shift" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Departmen__Manag__5AEE82B9" Association="Self.FK__Departmen__Manag__5AEE82B9">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Department" EntitySet="Department" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee___Emplo__5CD6CB2B" Association="Self.FK__Employee___Emplo__5CD6CB2B">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Employee_Shift" EntitySet="Employee_Shift" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee___Shift__5DCAEF64" Association="Self.FK__Employee___Shift__5DCAEF64">
+      <End Role="Shift" EntitySet="Shift" />
+      <End Role="Employee_Shift" EntitySet="Employee_Shift" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__Depart__5BE2A6F2" Association="Self.FK__Employee__Depart__5BE2A6F2">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

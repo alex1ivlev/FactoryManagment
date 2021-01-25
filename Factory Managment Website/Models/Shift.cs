@@ -14,9 +14,18 @@ namespace Factory_Managment_Website.Models
     
     public partial class Shift
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Shift()
+        {
+            this.Employee_Shift = new HashSet<Employee_Shift>();
+        }
+    
         public int ID { get; set; }
         public System.DateTime Date { get; set; }
         public int Start_time { get; set; }
         public int End_time { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Employee_Shift> Employee_Shift { get; set; }
     }
 }

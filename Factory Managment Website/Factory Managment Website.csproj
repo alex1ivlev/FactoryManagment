@@ -46,10 +46,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -235,8 +235,12 @@
     <Content Include="Views\Employee\EmployeesList.cshtml" />
     <Content Include="Views\Department\DepartmentList.cshtml" />
     <Content Include="Views\Shift\ShiftList.cshtml" />
-    <Content Include="Views\Department\EditDepartment2.cshtml" />
     <Content Include="Views\Department\EditDepartment.cshtml" />
+    <Content Include="Views\Department\NewDepartment.cshtml" />
+    <Content Include="Views\Shift\NewShift.cshtml" />
+    <Content Include="Views\Employee\EditEmployee.cshtml" />
+    <Content Include="Views\Employee\DeleteEmployee.cshtml" />
+    <Content Include="Views\Department\DeleteDepartment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

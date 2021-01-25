@@ -17,5 +17,8 @@ namespace Factory_Managment_Website.Models
         public int ID { get; set; }
         public int Employee_ID { get; set; }
         public int Shift_ID { get; set; }
+    
+        public virtual Employee Employee { get; set; }
+        public virtual Shift Shift { get; set; }
     }
 }

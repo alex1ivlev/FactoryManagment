@@ -18,5 +18,23 @@ namespace Factory_Managment_Website.Controllers
            return View("EmployeesList");
         }
 
+        public ActionResult Edit(int Id)
+        {
+            var selectedEmp = employeeBL.GetEmployeeForUpdate(Id);
+
+            return View("EditEmployee", selectedEmp);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Employee selectedEmp)
+        {
+            employeeBL.UpdateEmployee(selectedEmp);
+
+            var EmployeesData = employeeBL.GetEmployees();
+            ViewBag.employees = EmployeesData;
+            return View("EmployeesList");
+
+        }
+
     }
 }

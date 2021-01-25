@@ -17,5 +17,24 @@ namespace Factory_Managment_Website.Controllers
             ViewBag.shifts = ShiftData;
             return View("ShiftList");
         }
+
+
+
+        public ActionResult Add()
+        {
+            return View("NewShift");
+        }
+
+        [HttpPost]
+        public ActionResult New(Shift shift)
+        {
+            shiftBL.AddNewShift(shift);
+
+            var ShiftData = shiftBL.GetShiftData();
+
+            ViewBag.shifts = ShiftData;
+
+            return View("ShiftList");
+        }
     }
 }

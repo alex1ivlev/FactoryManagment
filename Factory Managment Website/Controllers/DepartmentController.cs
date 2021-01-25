@@ -38,5 +38,33 @@ namespace Factory_Managment_Website.Controllers
             return RedirectToAction("GetDepartmentList");
 
         }
+
+        public ActionResult Add()
+        {
+            return View("NewDepartment");
+        }
+
+        [HttpPost]
+        public ActionResult New(Department dept)
+        {
+            departmentBL.AddNewDepartment(dept);
+
+            var DepartmentData = departmentBL.GetDepartmentData();
+
+            ViewBag.departments = DepartmentData;
+
+            return RedirectToAction("GetDepartmentList");
+        }
+
+        public ActionResult Delete(int departmentID)
+        {
+            departmentBL.DeleteDepartment(departmentID);
+
+            var DepartmentData = departmentBL.GetDepartmentData();
+
+            ViewBag.departments = DepartmentData;
+
+            return RedirectToAction("GetDepartmentList");
+        }
     }
 }

@@ -14,6 +14,21 @@ namespace Factory_Managment_Website.Models
         {
             return db.Employee.ToList();
         }
+
+        public Employee GetEmployeeForUpdate(int employeeID)
+        {
+            return db.Employee.Where(x => x.ID == employeeID).FirstOrDefault();
+
+        }
+
+        public void UpdateEmployee(Employee employee )
+        {
+            
+            db.SaveChanges();
+        }
+
     }
+
+
 
 }

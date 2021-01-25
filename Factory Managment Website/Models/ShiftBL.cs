@@ -12,5 +12,11 @@ namespace Factory_Managment_Website.Models
         {
             return db.Shift.ToList();
         }
+
+        public void AddNewShift(Shift shift)
+        {
+            db.Shift.Add(shift);
+            db.SaveChanges();
+        }
     }
 }

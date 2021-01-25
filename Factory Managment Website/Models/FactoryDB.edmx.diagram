@@ -5,11 +5,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="adcb75a34b1343d2a712c66b89795ec0" Name="Diagram1">
-        <EntityTypeShape EntityType="FactoryDB.Department" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="FactoryDB.Employee" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="FactoryDB.Employee_Shift" Width="1.5" PointX="0.75" PointY="3.75" />
-        <EntityTypeShape EntityType="FactoryDB.Shift" Width="1.5" PointX="2.75" PointY="3.75" />
-        <EntityTypeShape EntityType="FactoryDB.User" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FactoryDB.Department" Width="1.5" PointX="3" PointY="5.125" />
+        <EntityTypeShape EntityType="FactoryDB.Employee" Width="1.5" PointX="0.75" PointY="2.125" />
+        <EntityTypeShape EntityType="FactoryDB.Employee_Shift" Width="1.5" PointX="3" PointY="2.375" />
+        <EntityTypeShape EntityType="FactoryDB.Shift" Width="1.5" PointX="0.75" PointY="7.375" />
+        <EntityTypeShape EntityType="FactoryDB.User" Width="1.5" PointX="5.75" PointY="0.75" />
+        <AssociationConnector Association="FactoryDB.FK__Departmen__Manag__5AEE82B9" />
+        <AssociationConnector Association="FactoryDB.FK__Employee__Depart__5BE2A6F2" />
+        <AssociationConnector Association="FactoryDB.FK__Employee___Emplo__5CD6CB2B" />
+        <AssociationConnector Association="FactoryDB.FK__Employee___Shift__5DCAEF64" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

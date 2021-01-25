@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@model Factory_Managment_Website.Models.Shift
+@{
+    Layout = null;
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add New Shift</title>
+</head>
+<body>
+    <div>
+        <form action="/Shift/New" method="post">
+
+            ID: @Html.TextBoxFor(x => x.ID) <br />
+
+            Date: @Html.TextBoxFor(x => x.Date) <br />
+
+            Start Time: @Html.TextBoxFor(x => x.Start_time) <br />
+
+            End Time: @Html.TextBoxFor(x => x.End_time) <br />
+
+            <input type="submit" value="Save" />
+        </form>
+    </div>
+</body>
+</html>

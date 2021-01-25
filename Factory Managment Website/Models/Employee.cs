@@ -14,10 +14,23 @@ namespace Factory_Managment_Website.Models
     
     public partial class Employee
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Employee()
+        {
+            this.Department = new HashSet<Department>();
+            this.Employee_Shift = new HashSet<Employee_Shift>();
+        }
+    
         public int ID { get; set; }
         public string First_name { get; set; }
         public string Last_name { get; set; }
         public int Start_work_year { get; set; }
         public int Department_ID { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Department> Department { get; set; }
+        public virtual Department Department1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Employee_Shift> Employee_Shift { get; set; }
     }
 }

@@ -19,5 +19,6 @@ namespace Factory_Managment_Website.Models
         public string User_name { get; set; }
         public string Password { get; set; }
         public int Num_of_actions { get; set; }
+        public Nullable<System.DateTime> Timestamp { get; set; }
     }
 }

@@ -33,10 +33,12 @@
                 <td> @employee.Last_name</td>
                 <td> @employee.Department_ID</td>
                 <td> @employee.Start_work_year</td>
-                <td>  Shift</td>
-                <td>  Edit</td>
-                <td>  Delete</td>
-                <td>  Add Shift</td>
+                <td>
+                    Shifts?
+                </td>
+                <td>  @Html.ActionLink("Edit", "Edit", new { id = employee.ID})</td>
+                <td>  @Html.ActionLink("Delete", "Delete", new { id = employee.ID })</td>
+                <td>  @Html.ActionLink("Add Shift", "AddShiftToEmployee", new { id = employee.ID })</td>
                 
             </tr>
             }

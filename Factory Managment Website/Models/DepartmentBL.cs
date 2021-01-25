@@ -25,5 +25,17 @@ namespace Factory_Managment_Website.Models
             db.Entry(department).State = EntityState.Modified;
             db.SaveChanges();
         }
+
+        public void AddNewDepartment(Department department)
+        {
+            db.Department.Add(department);
+            db.SaveChanges();
+        }
+
+        public void DeleteDepartment(int departmentID)
+        {
+            var d = db.Department.Where(x => x.ID == departmentID).First();
+            db.Department.Remove(d);
+        }
     }
 }

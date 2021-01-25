@@ -6,6 +6,22 @@
     <EntitySet Name="Employee_Shift" EntityType="FactoryDB.Employee_Shift" />
     <EntitySet Name="Shift" EntityType="FactoryDB.Shift" />
     <EntitySet Name="User" EntityType="FactoryDB.User" />
+    <AssociationSet Name="FK__Departmen__Manag__5AEE82B9" Association="FactoryDB.FK__Departmen__Manag__5AEE82B9">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Department" EntitySet="Department" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__Depart__5BE2A6F2" Association="FactoryDB.FK__Employee__Depart__5BE2A6F2">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee___Emplo__5CD6CB2B" Association="FactoryDB.FK__Employee___Emplo__5CD6CB2B">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Employee_Shift" EntitySet="Employee_Shift" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee___Shift__5DCAEF64" Association="FactoryDB.FK__Employee___Shift__5DCAEF64">
+      <End Role="Shift" EntitySet="Shift" />
+      <End Role="Employee_Shift" EntitySet="Employee_Shift" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Department">
     <Key>
@@ -14,6 +30,8 @@
     <Property Name="ID" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Manager_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="FactoryDB.FK__Departmen__Manag__5AEE82B9" FromRole="Department" ToRole="Employee" />
+    <NavigationProperty Name="Employee1" Relationship="FactoryDB.FK__Employee__Depart__5BE2A6F2" FromRole="Department" ToRole="Employee" />
   </EntityType>
   <EntityType Name="Employee">
     <Key>
@@ -24,6 +42,9 @@
     <Property Name="Last_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Start_work_year" Type="Int32" Nullable="false" />
     <Property Name="Department_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Department" Relationship="FactoryDB.FK__Departmen__Manag__5AEE82B9" FromRole="Employee" ToRole="Department" />
+    <NavigationProperty Name="Department1" Relationship="FactoryDB.FK__Employee__Depart__5BE2A6F2" FromRole="Employee" ToRole="Department" />
+    <NavigationProperty Name="Employee_Shift" Relationship="FactoryDB.FK__Employee___Emplo__5CD6CB2B" FromRole="Employee" ToRole="Employee_Shift" />
   </EntityType>
   <EntityType Name="Employee_Shift">
     <Key>
@@ -32,6 +53,8 @@
     <Property Name="ID" Type="Int32" Nullable="false" />
     <Property Name="Employee_ID" Type="Int32" Nullable="false" />
     <Property Name="Shift_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="FactoryDB.FK__Employee___Emplo__5CD6CB2B" FromRole="Employee_Shift" ToRole="Employee" />
+    <NavigationProperty Name="Shift" Relationship="FactoryDB.FK__Employee___Shift__5DCAEF64" FromRole="Employee_Shift" ToRole="Shift" />
   </EntityType>
   <EntityType Name="Shift">
     <Key>
@@ -41,6 +64,7 @@
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Start_time" Type="Int32" Nullable="false" />
     <Property Name="End_time" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee_Shift" Relationship="FactoryDB.FK__Employee___Shift__5DCAEF64" FromRole="Shift" ToRole="Employee_Shift" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -51,5 +75,54 @@
     <Property Name="User_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Num_of_actions" Type="Int32" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" Precision="0" />
   </EntityType>
+  <Association Name="FK__Departmen__Manag__5AEE82B9">
+    <End Type="FactoryDB.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="FactoryDB.Department" Role="Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Department">
+        <PropertyRef Name="Manager_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__Depart__5BE2A6F2">
+    <End Type="FactoryDB.Department" Role="Department" Multiplicity="1" />
+    <End Type="FactoryDB.Employee" Role="Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Department_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee___Emplo__5CD6CB2B">
+    <End Type="FactoryDB.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="FactoryDB.Employee_Shift" Role="Employee_Shift" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee_Shift">
+        <PropertyRef Name="Employee_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee___Shift__5DCAEF64">
+    <End Type="FactoryDB.Shift" Role="Shift" Multiplicity="1" />
+    <End Type="FactoryDB.Employee_Shift" Role="Employee_Shift" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shift">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee_Shift">
+        <PropertyRef Name="Shift_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

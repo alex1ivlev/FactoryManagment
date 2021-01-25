@@ -4,7 +4,7 @@
     <EntitySetMapping Name="Department">
       <EntityTypeMapping TypeName="FactoryDB.Department">
         <MappingFragment StoreEntitySet="Department">
-          <ScalarProperty Name="Manager_ID" ColumnName="Manager ID" />
+          <ScalarProperty Name="Manager_ID" ColumnName="Manager_ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
@@ -13,10 +13,10 @@
     <EntitySetMapping Name="Employee">
       <EntityTypeMapping TypeName="FactoryDB.Employee">
         <MappingFragment StoreEntitySet="Employee">
-          <ScalarProperty Name="Department_ID" ColumnName="Department ID" />
-          <ScalarProperty Name="Start_work_year" ColumnName="Start work year" />
-          <ScalarProperty Name="Last_name" ColumnName="Last name" />
-          <ScalarProperty Name="First_name" ColumnName="First name" />
+          <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
+          <ScalarProperty Name="Start_work_year" ColumnName="Start_work_year" />
+          <ScalarProperty Name="Last_name" ColumnName="Last_name" />
+          <ScalarProperty Name="First_name" ColumnName="First_name" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -24,8 +24,8 @@
     <EntitySetMapping Name="Employee_Shift">
       <EntityTypeMapping TypeName="FactoryDB.Employee_Shift">
         <MappingFragment StoreEntitySet="Employee_Shift">
-          <ScalarProperty Name="Shift_ID" ColumnName="Shift ID" />
-          <ScalarProperty Name="Employee_ID" ColumnName="Employee ID" />
+          <ScalarProperty Name="Shift_ID" ColumnName="Shift_ID" />
+          <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -33,8 +33,8 @@
     <EntitySetMapping Name="Shift">
       <EntityTypeMapping TypeName="FactoryDB.Shift">
         <MappingFragment StoreEntitySet="Shift">
-          <ScalarProperty Name="End_time" ColumnName="End time" />
-          <ScalarProperty Name="Start_time" ColumnName="Start time" />
+          <ScalarProperty Name="End_time" ColumnName="End_time" />
+          <ScalarProperty Name="Start_time" ColumnName="Start_time" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
@@ -43,10 +43,11 @@
     <EntitySetMapping Name="User">
       <EntityTypeMapping TypeName="FactoryDB.User">
         <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="Num_of_actions" ColumnName="Num of actions" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="Num_of_actions" ColumnName="Num_of_actions" />
           <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="User_name" ColumnName="User name" />
-          <ScalarProperty Name="Full_name" ColumnName="Full name" />
+          <ScalarProperty Name="User_name" ColumnName="User_name" />
+          <ScalarProperty Name="Full_name" ColumnName="Full_name" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
