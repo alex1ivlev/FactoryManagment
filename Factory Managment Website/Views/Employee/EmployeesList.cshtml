@@ -12,6 +12,15 @@
 </head>
 <body>
     <div>
+        @using (Html.BeginForm())
+        {
+            <p>
+                Search employee : @Html.TextBox("SearchName") <br />
+                <input type="submit" value="Search" />
+            </p>
+        }
+    </div>
+    <div>
         <table border="1">
             <tr>
                 <th> ID</th>
@@ -34,7 +43,22 @@
                 <td> @employee.Department_ID</td>
                 <td> @employee.Start_work_year</td>
                 <td>
-                    Shifts?
+                    <table>
+                        <tr>
+                            <td>Date</td>
+                            <td>Start</td>
+                            <td>End</td>
+                        </tr>
+                        @foreach (var s in employee.Employee_Shift)
+                        {
+                    <tr>
+                        <td>@s.Shift.Date</td>
+                        <td>@s.Shift.Start_time</td>
+                        <td>@s.Shift.End_time</td>
+                    </tr>
+                        }
+
+                    </table>
                 </td>
                 <td>  @Html.ActionLink("Edit", "Edit", new { id = employee.ID})</td>
                 <td>  @Html.ActionLink("Delete", "Delete", new { id = employee.ID })</td>

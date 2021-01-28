@@ -35,6 +35,11 @@ namespace Factory_Managment_Website.Controllers
             return View("EmployeesList");
 
         }
-
+        
+        public ActionResult Search(string searchName)
+        {
+            employeeBL.SearchEmp(searchName);
+            return View("SearchResults");
+        }
     }
 }

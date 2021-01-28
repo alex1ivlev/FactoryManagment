@@ -8,15 +8,21 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>HomePage</title>
+    <title>Home Page</title>
 </head>
 <body>
+    <ul class="nav navbar-nav" style="float:right!important">
+        @if (Session["username"] != null)
+         {<li> @Session["username"] logged in </li>
+         <li>@Html.ActionLink("Logout", "Logout") </li>}
+
+    </ul>
     <div>
         <h1> Welcome to Home Page @ViewBag.name!</h1>
 
-        <h3> @Html.ActionLink("Employees List", "GetEmployeeList", "Employee")</h3> <br/>
+        <h3> @Html.ActionLink("Employees List", "GetEmployeeList", "Employee")</h3> <br />
 
-        <h3> @Html.ActionLink("Departments List", "GetDepartmentList", "Department")</h3> <br/>
+        <h3> @Html.ActionLink("Departments List", "GetDepartmentList", "Department")</h3> <br />
 
         <h3> @Html.ActionLink("Shifts List", "GetShiftList", "Shift")</h3> <br />
     </div>

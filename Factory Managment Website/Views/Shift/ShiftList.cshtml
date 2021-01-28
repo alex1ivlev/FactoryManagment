@@ -29,7 +29,24 @@
                     <td>@shift.Date </td>
                     <td>@shift.Start_time </td>
                     <td>@shift.End_time </td>
-                    <td> </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>ID</td>
+                                <td>Name</td>
+                                <td> </td>
+                            </tr>
+                            @foreach (var e in shift.Employee_Shift)
+                            {
+                                <tr>
+                                    <td>@e.Employee.ID</td>
+                                    <td>@e.Employee.First_name</td>
+                                    <td>@e.Employee.Last_name</td>
+                                </tr>
+                            }
+
+                        </table>
+                    </td>
                 </tr>
 
 
