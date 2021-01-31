@@ -36,6 +36,7 @@ namespace Factory_Managment_Website.Models
         {
             var d = db.Department.Where(x => x.ID == departmentID).First();
             db.Department.Remove(d);
+            db.SaveChanges();
         }
     }
 }

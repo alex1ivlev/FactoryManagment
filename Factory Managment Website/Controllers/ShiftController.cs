@@ -18,16 +18,21 @@ namespace Factory_Managment_Website.Controllers
             return View("ShiftList");
         }
 
-
+        private LoginBL loginBl = new LoginBL();
 
         public ActionResult Add()
         {
             return View("NewShift");
         }
-
+        
         [HttpPost]
         public ActionResult New(Shift shift)
         {
+            //reducing the credit from the User Credits
+            if (loginBl.ReduceCredit((string) Session["username"]) == false)
+            {
+                return RedirectToAction("Logout", "HomePage");
+            }
             shiftBL.AddNewShift(shift);
 
             var ShiftData = shiftBL.GetShiftData();

@@ -26,8 +26,9 @@ using Factory_Managment_Website.Models;
             if (isAuthenticated == true)
             {
                 Session["authenticated"] = true;
-
+                Session["username"] = username;
                 return RedirectToAction("Index", "HomePage");
+                
             }
             else
             {

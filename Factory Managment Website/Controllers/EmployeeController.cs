@@ -17,10 +17,13 @@ namespace Factory_Managment_Website.Controllers
            ViewBag.employees = EmployeesData;
            return View("EmployeesList");
         }
-
+        DepartmentBL departmentBL = new DepartmentBL();
+        private LoginBL loginBl = new LoginBL();
         public ActionResult Edit(int Id)
         {
-            var selectedEmp = employeeBL.GetEmployeeForUpdate(Id);
+            var selectedEmp = employeeBL.Get(Id);
+
+            ViewBag.departments = new SelectList( departmentBL.GetDepartmentData(),"ID","Name");
 
             return View("EditEmployee", selectedEmp);
         }
@@ -28,18 +31,72 @@ namespace Factory_Managment_Website.Controllers
         [HttpPost]
         public ActionResult Edit(Employee selectedEmp)
         {
+            //reducing the credit from the User Credits
+            if (loginBl.ReduceCredit((string) Session["username"]) == false)
+            {
+                return RedirectToAction("Logout", "HomePage");
+            }
+            
             employeeBL.UpdateEmployee(selectedEmp);
 
-            var EmployeesData = employeeBL.GetEmployees();
-            ViewBag.employees = EmployeesData;
-            return View("EmployeesList");
-
+            return RedirectToAction("GetEmployeeList");
         }
-        
+
+        [HttpPost]
         public ActionResult Search(string searchName)
         {
-            employeeBL.SearchEmp(searchName);
-            return View("SearchResults");
+            //reducing the credit from the User Credits
+            if (loginBl.ReduceCredit((string) Session["username"]) == false)
+            {
+                return RedirectToAction("Logout", "HomePage");
+            }
+
+            var EmployeesData = employeeBL.SearchEmp(searchName);
+            ViewBag.employees = EmployeesData;
+            return View("EmployeesList");
         }
+        
+        public ActionResult Delete(int Id)
+        {
+            var selectedEmp = employeeBL.Get(Id);
+
+            return View("DeleteEmployee", selectedEmp);
+        }
+        [HttpPost]
+        public ActionResult Delete(Employee selectedEmp)
+        {
+            //reducing the credit from the User Credits
+            if (loginBl.ReduceCredit((string) Session["username"]) == false)
+            {
+                return RedirectToAction("Logout", "HomePage");
+            }
+
+            employeeBL.DeleteEmployee(selectedEmp);
+
+            return RedirectToAction("GetEmployeeList");
+        }
+
+        private ShiftBL shiftBL = new ShiftBL();
+        public ActionResult AddShiftToEmployee(int Id)
+        {
+            ViewBag.shifts = new SelectList(shiftBL.GetShiftData(), "ID", "ID");
+            Employee_Shift model = new Employee_Shift();
+            model.Employee_ID = Id;
+            return View("AddNewShift", model);
+        }
+
+        [HttpPost]
+        public ActionResult AddShiftToEmployee(Employee_Shift employeeShift)
+        {
+            //reducing the credit from the User Credits
+            if (loginBl.ReduceCredit((string) Session["username"]) == false)
+            {
+                return RedirectToAction("Logout", "HomePage");
+            }
+
+            employeeBL.AddNewShiftToEmployee(employeeShift);
+            return RedirectToAction("GetEmployeeList");
+        }
+        
     }
-}
+    }

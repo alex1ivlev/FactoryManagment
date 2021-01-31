@@ -26,7 +26,7 @@
             { <tr>
                   <td>@department.ID </td>
                   <td>@department.Name </td>
-                  <td>@department.Manager_ID </td>
+                  <td>@department.Employee.First_name </td>
                   <td>@Html.ActionLink("Edit", "Edit", new { id = department.ID }) </td>
                   <td>@Html.ActionLink("Delete", "Delete", new { id = department.ID }) </td>
                </tr>
@@ -36,7 +36,8 @@
             </table>
 
         <div>
-            @Html.ActionLink("Add New Department", "Add") 
+            @Html.ActionLink("Add New Department", "Add")
+            @Html.ActionLink("Back to Home", "Index", "HomePage")
         </div>
 </div>
 </body>

@@ -1,4 +1,5 @@
-﻿
+﻿@using Factory_Managment_Website.Models
+
 @{
     Layout = null;
 }
@@ -42,13 +43,13 @@
                                     <td>@e.Employee.ID</td>
                                     <td>@e.Employee.First_name</td>
                                     <td>@e.Employee.Last_name</td>
+                                         @Html.ActionLink("Edit", "Edit", "Employee", ("Edit"), new{ Id = e.Employee.ID})
                                 </tr>
                             }
 
                         </table>
                     </td>
                 </tr>
-
 
             }
         </table>

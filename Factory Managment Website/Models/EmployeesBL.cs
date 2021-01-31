@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -14,7 +15,7 @@ namespace Factory_Managment_Website.Models
         {
             return db.Employee.ToList();
         }
-        public Employee GetEmployeeForUpdate(int employeeID)
+        public Employee Get(int employeeID)
         {
             return db.Employee.Where(x => x.ID == employeeID).FirstOrDefault();
 
@@ -22,19 +23,25 @@ namespace Factory_Managment_Website.Models
 
         public void UpdateEmployee(Employee employee)
         {
+            db.Entry(employee).State = EntityState.Modified;
             db.SaveChanges();
         }
 
-        public void SearchEmp(string searchName)
+        public List<Employee> SearchEmp(string searchName)
         {
-             var employee = db.Employee;
-            
-            if (!String.IsNullOrEmpty(searchName))
-            {
-              db.Employee.Where(p => p.First_name.Contains(searchName) || p.Last_name.Contains(searchName) );
-            }
-     
-          }
+            return db.Employee.Where(p => p.First_name.Contains(searchName) || p.Last_name.Contains(searchName) ).ToList();
+        }
+        public void DeleteEmployee(Employee employee)
+        {
+            db.Entry(employee).State = EntityState.Deleted;
+            db.SaveChanges();
+        }
+        
+        public void AddNewShiftToEmployee(Employee_Shift shift)
+        {
+             db.Employee_Shift.Add(shift);
+             db.SaveChanges();
+        }
 
     }
 

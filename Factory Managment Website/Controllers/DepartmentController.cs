@@ -28,12 +28,13 @@ namespace Factory_Managment_Website.Controllers
         
         [HttpPost]
         public ActionResult Edit(Department selectedDepartment)
-        {
+        { //reducing the credit from the User Credits
+            if (loginBl.ReduceCredit((string) Session["username"]) == false)
+            {
+                return RedirectToAction("Logout", "HomePage");
+            }
+            
             departmentBL.UpdateDepartment(selectedDepartment);
-
-            var DepartmentData = departmentBL.GetDepartmentData();
-
-            ViewBag.departments = DepartmentData;
 
             return RedirectToAction("GetDepartmentList");
 
@@ -43,10 +44,16 @@ namespace Factory_Managment_Website.Controllers
         {
             return View("NewDepartment");
         }
-
+        private LoginBL loginBl = new LoginBL();
         [HttpPost]
         public ActionResult New(Department dept)
         {
+            //reducing the credit from the User Credits
+            if (loginBl.ReduceCredit((string) Session["username"]) == false)
+            {
+                return RedirectToAction("Logout", "HomePage");
+            }
+
             departmentBL.AddNewDepartment(dept);
 
             var DepartmentData = departmentBL.GetDepartmentData();
@@ -56,13 +63,14 @@ namespace Factory_Managment_Website.Controllers
             return RedirectToAction("GetDepartmentList");
         }
 
-        public ActionResult Delete(int departmentID)
+        public ActionResult Delete(int Id)
         {
-            departmentBL.DeleteDepartment(departmentID);
-
-            var DepartmentData = departmentBL.GetDepartmentData();
-
-            ViewBag.departments = DepartmentData;
+            //reducing the credit from the User Credits
+            if (loginBl.ReduceCredit((string) Session["username"]) == false)
+            {
+                return RedirectToAction("Logout", "HomePage");
+            }
+            departmentBL.DeleteDepartment(Id);
 
             return RedirectToAction("GetDepartmentList");
         }
