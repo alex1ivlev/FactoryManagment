@@ -12,48 +12,51 @@
     <title>Shifts List</title>
 </head>
 <body>
-    <div>
-        <table border="1">
-            <tr>
-                <th>Shift ID</th>
-                <th>Date </th>
-                <th>Start time</th>
-                <th>End time</th>
-                <th>Employee</th>
+<ul class="nav navbar-nav" style="float: top!important">
+        @if (Session["username"] != null)
+         {<li> @Session["fullname"] logged in </li>
+         <li>@Html.ActionLink("Logout", "Logout", "HomePage") </li>}
 
+    </ul>
+<div>
+    <table border="1">
+        <tr>
+            <th>Shift ID</th>
+            <th>Date </th>
+            <th>Start time</th>
+            <th>End time</th>
+            <th>Employee</th>
+
+        </tr>
+
+        @foreach (var shift in ViewBag.shifts)
+        {
+            <tr>
+                <td>@shift.ID </td>
+                <td>@shift.Date </td>
+                <td>@shift.Start_time </td>
+                <td>@shift.End_time </td>
+                <td>
+                    <table>
+                         @foreach (var e in shift.Employee_Shift)
+                         {
+                             if (@shift.ID == e.Shift.ID)
+                             {
+                                 <td></td>@e.Employee.First_name
+                                 <td></td>@e.Employee.Last_name
+                                 @Html.ActionLink(" Edit", "Edit", "Employee", new {id = @e.Employee.ID},  new {@class="btn btn-light btn-sm"})
+                             }
+
+                         }
+
+                    </table>
+                </td>
             </tr>
 
-            @foreach (var shift in ViewBag.shifts)
-            {
-                <tr>
-                    <td>@shift.ID </td>
-                    <td>@shift.Date </td>
-                    <td>@shift.Start_time </td>
-                    <td>@shift.End_time </td>
-                    <td>
-                        <table>
-                            <tr>
-                                <td>ID</td>
-                                <td>Name</td>
-                                <td> </td>
-                            </tr>
-                            @foreach (var e in shift.Employee_Shift)
-                            {
-                                <tr>
-                                    <td>@e.Employee.ID</td>
-                                    <td>@e.Employee.First_name</td>
-                                    <td>@e.Employee.Last_name</td>
-                                         @Html.ActionLink("Edit", "Edit", "Employee", ("Edit"), new{ Id = e.Employee.ID})
-                                </tr>
-                            }
-
-                        </table>
-                    </td>
-                </tr>
-
-            }
-        </table>
-        @Html.ActionLink("Add New Shift", "Add")
-    </div>
+        }
+    </table>
+    @Html.ActionLink("Add New Shift", "Add")
+    @Html.ActionLink("Back to Home", "Index", "HomePage")
+</div>
 </body>
 </html>

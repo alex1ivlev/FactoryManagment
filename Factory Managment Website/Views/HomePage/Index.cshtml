@@ -11,9 +11,9 @@
     <title>Home Page</title>
 </head>
 <body>
-    <ul class="nav navbar-nav" style="float:right!important">
+    <ul class="nav navbar-nav" style="float: top!important">
         @if (Session["username"] != null)
-         {<li> @Session["username"] logged in </li>
+        {<li> @ViewBag.FullName logged in </li>
          <li>@Html.ActionLink("Logout", "Logout") </li>}
 
     </ul>

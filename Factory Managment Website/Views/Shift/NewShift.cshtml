@@ -14,19 +14,25 @@
     <title>Add New Shift</title>
 </head>
 <body>
-    <div>
-        <form action="/Shift/New" method="post">
+<ul class="nav navbar-nav" style="float: top!important">
+        @if (Session["username"] != null)
+         {<li> @Session["fullname"] logged in </li>
+         <li>@Html.ActionLink("Logout", "Logout", "HomePage") </li>}
 
-            ID: @Html.TextBoxFor(x => x.ID) <br />
+    </ul>
+<div>
+    <form action="/Shift/New" method="post">
 
-            Date: @Html.TextBoxFor(x => x.Date) <br />
+        ID: @Html.TextBoxFor(x => x.ID) <br/>
 
-            Start Time: @Html.TextBoxFor(x => x.Start_time) <br />
+        Date: @Html.TextBoxFor(x => x.Date) <br/>
 
-            End Time: @Html.TextBoxFor(x => x.End_time) <br />
+        Start Time: @Html.TextBoxFor(x => x.Start_time) <br/>
 
-            <input type="submit" value="Save" />
-        </form>
-    </div>
+        End Time: @Html.TextBoxFor(x => x.End_time) <br/>
+
+        <input type="submit" value="Save"/>
+    </form>
+</div>
 </body>
 </html>

@@ -14,6 +14,7 @@ namespace Factory_Managment_Website.Controllers
         public ActionResult Index()
         {
             ViewBag.FullName = loginBl.GetUserFullName((string) Session["username"]);
+            Session["fullname"] = ViewBag.FullName;
             return View();
         }
 

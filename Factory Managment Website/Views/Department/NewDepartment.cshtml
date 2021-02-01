@@ -12,16 +12,22 @@
     <title>Add New Department</title>
 </head>
 <body>
-    <div>
-        <form action="/Department/New" method="post">
-            ID: @Html.TextBoxFor(x => x.ID) <br />
+<ul class="nav navbar-nav" style="float: top!important">
+        @if (Session["username"] != null)
+         {<li> @ViewBag.FullName logged in </li>
+         <li>@Html.ActionLink("Logout", "Logout","HomePage") </li>}
 
-            Department Name: @Html.TextBoxFor(x => x.Name) <br />
+    </ul>
+<div>
+    <form action="/Department/New" method="post">
+        ID: @Html.TextBoxFor(x => x.ID) <br/>
 
-            Manager ID: @Html.TextBoxFor(x => x.Manager_ID) <br />
+        Department Name: @Html.TextBoxFor(x => x.Name) <br/>
 
-            <input type="submit" value="Save" />
-        </form>
-    </div>
+        Manager ID: @Html.TextBoxFor(x => x.Manager_ID) <br/>
+
+        <input type="submit" value="Save"/>
+    </form>
+</div>
 </body>
 </html>

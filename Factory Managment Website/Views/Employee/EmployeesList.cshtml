@@ -7,73 +7,81 @@
 
 <html>
 <head>
-    <meta  name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width"/>
     <title>EmployeesList</title>
 </head>
 <body>
+<ul class="nav navbar-nav" style="float: top!important">
+    @if (Session["username"] != null)
+    {
+        <li> @Session["fullname"] logged in </li>
+        <li>@Html.ActionLink("Logout", "Logout", "HomePage") </li>
+    }
+</ul>
 <div>
-    @if(ViewBag.search!=null)
-                    {
-                        <a href="/Employee/HomePage" >Back to list</a>
-                    }
-                    else
-                    {
-                    <form  method="POST" action="/Employee/Search">
-                        <input type="search" placeholder="Search" label="Search" name="searchname">
-                        <button class="btn" type="submit">Search </button>
-                    </form>
-                    }
+    @if (ViewBag.search != null)
+    {
+        <a href="/Employee/HomePage">Back to list</a>
+    }
+    else
+    {
+        <form method="POST" action="/Employee/Search">
+            <input type="search" placeholder="Search" label="Search" name="searchname">
+            <button class="btn" type="submit">Search </button>
+        </form>
+    }
 </div>
-    <div>
-        <table border="1">
+<div>
+    <table border="1">
+        <tr>
+            <th> ID</th>
+            <th>First Name </th>
+            <th>Last Name </th>
+            <th>Department ID</th>
+            <th>Start Work Year</th>
+            <th>Shift</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>Add Shift</th>
+
+        </tr>
+
+        @foreach (var employee in ViewBag.employees)
+        {
             <tr>
-                <th> ID</th>
-                <th>First Name </th>
-                <th>Last Name </th>
-                <th>Department ID</th>
-                <th>Start Work Year</th>
-                <th>Shift</th>
-                <th>Edit</th>
-                <th>Delete</th>
-                <th>Add Shift</th>
+                <td> @employee.ID </td>
+                <td> @employee.First_name</td>
+                <td> @employee.Last_name</td>
+                <td> @employee.Department_ID</td>
+                <td> @employee.Start_work_year</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>Date</td>
+                            <td>Start</td>
+                            <td>End</td>
+                        </tr>
+                        @foreach (var s in employee.Employee_Shift)
+                        {
+                            <tr>
+                                <td>@s.Shift.Date</td>
+                                <td>@s.Shift.Start_time</td>
+                                <td>@s.Shift.End_time</td>
+                            </tr>
+                        }
+
+                    </table>
+                </td>
+                <td> @Html.ActionLink("Edit", "Edit", new {id = employee.ID})</td>
+                <td> @Html.ActionLink("Delete", "Delete", new {id = employee.ID})</td>
+                <td> @Html.ActionLink("Add Shift", "AddShiftToEmployee", new {id = employee.ID})</td>
 
             </tr>
-
-            @foreach (var employee in ViewBag.employees)
-            { <tr>
-                  <td> @employee.ID </td>
-                  <td> @employee.First_name</td>
-                  <td> @employee.Last_name</td>
-                  <td> @employee.Department_ID</td>
-                  <td> @employee.Start_work_year</td>
-                  <td>
-                      <table>
-                          <tr>
-                              <td>Date</td>
-                              <td>Start</td>
-                              <td>End</td>
-                          </tr>
-                          @foreach (var s in employee.Employee_Shift)
-                          {
-                              <tr>
-                                  <td>@s.Shift.Date</td>
-                                  <td>@s.Shift.Start_time</td>
-                                  <td>@s.Shift.End_time</td>
-                              </tr>
-                          }
-
-                      </table>
-                  </td>
-                  <td>  @Html.ActionLink("Edit", "Edit", new { id = employee.ID})</td>
-                  <td>  @Html.ActionLink("Delete", "Delete", new { id = employee.ID })</td>
-                  <td>  @Html.ActionLink("Add Shift", "AddShiftToEmployee", new { id = employee.ID })</td>
-                
-              </tr>
-            }
-        </table>
-        <div>
-              @Html.ActionLink("Back to Home", "Index", "HomePage")
-        </div>
+        }
+    </table>
+    <div>
+        @Html.ActionLink("Back to Home", "Index", "HomePage")
     </div>
+</div>
 </body>
 </html>
